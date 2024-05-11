@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="otp.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Domine:wght@400..700&family=Satisfy&display=swap"
+        rel="stylesheet">
+    <title>OTP Generater</title>
+    <link rel="stylesheet" href="otp.css">
+       
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="text">
+                <h1>OTP Generater</h1>
+                <p>OTP, or One-Time Password, is a temporary and unique code used for authentication.
+                    It adds an extra layer of security by providing a time-sensitive code for each login attempt.
+                    OTPs are commonly sent via SMS, email, or generated through authenticator apps.
+                </p>
+                <div id="otpDisplay"></div>
+                <button id="generateButton" onclick="generateOTP()">Generate OTP</button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+       
+</body>
+
+</html>
