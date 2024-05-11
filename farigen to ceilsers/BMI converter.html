@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Converter</title>
+    <style>
+        body {
+            background-color: #ffe5d9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: #723d46;
+            border: none;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+            padding: 50px 100px;
+            color: aliceblue;
+        }
+
+        .Calculate {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        label {
+            font-size: 20px;
+            padding: 5px;
+        }
+
+        input {
+            width: 200px;
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 15px;
+            border-radius: 20px;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 15px;
+            margin-bottom: 25px;
+            background-color: #c81d25;
+            color: #e1e5f2;
+            border-radius: 20px;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #ae2012;
+            border: solid 1px white;
+        }
+
+        @media(max-width: 768px) {
+            .container {
+                margin: 20px auto;
+            }
+
+            input[type="number"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1><abbr title="Body Mass Index">BMI</abbr> Calculater</h1>
+        <p>Enter your height and weight to know BMI</p>
+        <div class="Calculate">
+            <div>
+                <label for="height">Height (cm):</label>
+                <input type="number" id="height" placeholder="Enter your Height">
+            </div>
+            <div>
+                <label for="weight">Weight (kg):</label>
+                <input type="number" id="weight" placeholder="Enter your Weight">
+            </div>
+            <button id="convertBtn">Calculate BMI</button>
+            <div>
+                <p id="result"></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('convertBtn').addEventListener('click', function () {
+            var height = parseFloat(document.getElementById('height').value);
+            var weight = parseFloat(document.getElementById('weight').value);
+
+            if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+                document.getElementById('result').innerHTML = `Please enter valid height and weight values to calculate your BMI`;
+                return;
+            }
+
+            var bmi = claculateBmi(height, weight);
+            document.getElementById('result').innerHTML = `Your BMI is: ` + bmi.toFixed(2);
+        });
+        function claculateBmi(height, weight) {
+            return weight / ((height / 100) * (height / 100));
+        }
+    </script>
+</body>
+
+</html>
